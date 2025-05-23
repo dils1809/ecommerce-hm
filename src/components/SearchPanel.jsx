@@ -1,13 +1,13 @@
 import React from 'react'
 
-export default function SearchPanel() {
+export default function SearchPanel({ sugerencias = [] }) {
   return (
     <aside className="panelBusq">
       <h2 className="titBusq">Buscar</h2>
       <div className="sugs">
-        <button className="btn">Crochet</button>
-        <button className="btn">Beachwear</button>
-        <button className="btn">Total look</button>
+        {sugerencias.map((sug, i) => (
+          <button key={i} className="btn">{sug}</button>
+        ))}
       </div>
     </aside>
   )

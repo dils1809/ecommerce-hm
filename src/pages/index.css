@@ -1,0 +1,238 @@
+/* === GLOBAL === */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #111;
+}
+
+h1, h2, h3, h4, p {
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.mainCont {
+  padding: 2rem;
+}
+
+/* === BOTONES === */
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #111;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 0.3rem;
+}
+
+.btn:hover {
+  background-color: #444;
+}
+
+.btnIcono {
+  font-size: 1.1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* === HEADER === */
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logoImg {
+  height: 36px;
+  width: auto;
+}
+
+.navLista {
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navLista li {
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.navLista li a {
+  text-decoration: none;
+  color: black;
+}
+
+.navLista li a:hover {
+  text-decoration: underline;
+}
+
+.iconos {
+  display: flex;
+  gap: 1.2rem;
+}
+
+/* === PRODUCT CARD === */
+.gridProd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.prodCard {
+  width: 220px;
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.prodImg {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.prodTit {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.estrellas {
+  color: gold;
+  font-size: 1.1rem;
+}
+
+.precioAct {
+  font-weight: bold;
+}
+
+.precioAnt {
+  text-decoration: line-through;
+  color: gray;
+  font-size: 0.9rem;
+}
+
+.acciones {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* === PRODUCT DETAIL === */
+.detalleCont {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  align-items: flex-start;
+}
+
+.detalleImg {
+  flex: 1;
+  position: relative;
+}
+
+.detalleImg img {
+  width: 100%;
+  max-width: 400px;
+}
+
+.btnVer {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: white;
+  border: 1px solid #000;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.detalleInfo {
+  flex: 1;
+  max-width: 500px;
+}
+
+.precioDet {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.colorTexto {
+  margin-top: 1rem;
+}
+
+.imgMini {
+  width: 60px;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+}
+
+.textoTalla {
+  margin: 1rem 0 0.5rem;
+  font-weight: 500;
+}
+
+.gridTallas {
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  gap: 0.5rem;
+}
+
+.btnTalla {
+  padding: 0.5rem;
+  border: 1px solid #aaa;
+  background: white;
+  cursor: pointer;
+}
+
+.guiaTalla {
+  display: inline-block;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btnAgregar {
+  margin-top: 1rem;
+  background: black;
+  color: white;
+  padding: 0.8rem;
+  width: 100%;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.prodImg {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}

@@ -1,17 +1,16 @@
 import React from 'react'
-import './ProductCard.css'
 
-export default function ProductCard() {
+export default function ProductCard({ nombre, precio, precioAnt, img, estrellas }) {
   return (
     <div className="prodCard">
-      <img src="/assets/prod.jpg" alt="Prod" className="prodImg" />
-      <h3 className="prodTit">Nombre del prod</h3>
-      <div className="estrellas">★★★★☆</div>
-      <p className="precioAct">Precio actual</p>
-      <p className="precioAnt">Precio anterior</p>
+      <img src={img} alt={nombre} className="prodImg" />
+      <h3 className="prodTit">{nombre}</h3>
+      <div className="estrellas">{estrellas}</div>
+      <p className="precioAct">{precio}</p>
+      <p className="precioAnt">{precioAnt}</p>
       <div className="acciones">
         <button className="btn">Agregar</button>
-        <button className="btn">❤️</button>
+        <button className="btn">Favorito</button>
       </div>
     </div>
   )

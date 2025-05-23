@@ -1,20 +1,30 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { MdSearch, MdPerson, MdFavoriteBorder, MdShoppingBag } from 'react-icons/md'
+import logoHM from '../assets/logo-hm.png'
 
 export default function Header() {
   return (
     <header className="encabezado">
-      <h1 className="logo">H&M</h1>
+      <div className="logoArea">
+        <img src={logoHM} alt="Logo H&M" className="logoImg" />
+      </div>
+
       <nav className="nav">
-        <ul>
+        <ul className="navLista">
+          <li><Link to="/">Home</Link></li>
           <li>Mujer</li>
           <li>Hombre</li>
           <li>Niños</li>
           <li>Beauty</li>
         </ul>
       </nav>
+
       <div className="iconos">
-        <button>🔍</button>
-        <button>👜</button>
+        <button className="btnIcono"><MdSearch size={20} /></button>
+        <button className="btnIcono"><MdPerson size={20} /></button>
+        <Link to="/favorites" className="btnIcono"><MdFavoriteBorder size={20} /></Link>
+        <Link to="/cart" className="btnIcono"><MdShoppingBag size={20} /></Link>
       </div>
     </header>
   )

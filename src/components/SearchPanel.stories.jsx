@@ -5,4 +5,6 @@ export default {
   component: SearchPanel,
 }
 
-export const Default = () => <SearchPanel />
+export const Default = () => (
+  <SearchPanel sugerencias={['Crochet', 'Beachwear', 'Total look']} />
+)
