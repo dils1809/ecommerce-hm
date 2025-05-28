@@ -1,15 +1,20 @@
+/* === FUENTE === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
 /* === GLOBAL === */
 body {
-  font-family: sans-serif;
+  font-family: 'Inter', sans-serif !important;
   margin: 0;
   padding: 0;
   background-color: #f9f9f9;
   color: #111;
 }
 
+
 h1, h2, h3, h4, p {
   margin: 0;
   padding: 0.5rem 0;
+  text-align: left;
 }
 
 ul {
@@ -43,7 +48,7 @@ a {
 }
 
 .btnIcono {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -62,32 +67,39 @@ a {
   z-index: 1000;
 }
 
+.headLeft {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav {
+  max-width: 700px;
+  width: 100%;
+}
+
+
 .logoImg {
   height: 36px;
   width: auto;
+  cursor: pointer;
 }
 
 .navLista {
   display: flex;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  gap: 1.5rem;
+  padding-left: 0;       
+  margin-left: 0;        
+  text-transform: uppercase;
 }
 
 .navLista li {
-  font-weight: 500;
-  text-transform: uppercase;
   cursor: pointer;
+  transition: color 0.2s ease;
 }
 
-.navLista li a {
-  text-decoration: none;
-  color: black;
-}
-
-.navLista li a:hover {
-  text-decoration: underline;
+.navLista li:hover {
+  color: #d3181f;
 }
 
 .iconos {
@@ -96,53 +108,78 @@ a {
 }
 
 /* === PRODUCT CARD === */
-.gridProd {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1rem;
-}
-
 .prodCard {
-  width: 220px;
-  padding: 1rem;
+  width: 240px;
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.prodCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.prodImgCont {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
 }
 
 .prodImg {
   width: 100%;
-  border-radius: 4px;
+  height: 100%;
+  object-fit: cover;
 }
 
 .prodTit {
   font-size: 1.1rem;
   font-weight: bold;
-  margin: 0.5rem 0;
+  margin: 0.8rem 0 0.3rem;
+  padding: 0 1rem;
+  word-break: break-word;
 }
 
 .estrellas {
   color: gold;
   font-size: 1.1rem;
+  margin: 0.3rem 0;
 }
 
 .precioAct {
   font-weight: bold;
+  font-size: 1rem;
+  margin: 0.3rem 0;
 }
 
 .precioAnt {
   text-decoration: line-through;
   color: gray;
   font-size: 0.9rem;
+  margin-bottom: 0.5rem;
 }
 
 .acciones {
-  margin-top: 0.5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: auto;
 }
+
 
 /* === PRODUCT DETAIL === */
 .detalleCont {
@@ -228,11 +265,4 @@ a {
   border: none;
   font-weight: bold;
   cursor: pointer;
-}
-
-.prodImg {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 4px;
 }
