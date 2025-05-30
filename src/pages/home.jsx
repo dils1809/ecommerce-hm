@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useContext, useMemo, useState } from 'react'
 import ProductCard from '../components/ProductCard'
+import ProductModal from '../components/ProductModal'
+import { CartContext } from '../context/CartContext'
 
 import vestido from '../assets/vestido-verde.png'
 import blusa from '../assets/blusa-blanca.png'
@@ -26,6 +28,13 @@ const productos = [
 ]
 
 export default function Home() {
+  const { historial } = useContext(CartContext)
+  const [productoSeleccionado, setProductoSeleccionado] = useState(null)
+
+  const recomendaciones = useMemo(() => {
+    return productos.filter(p => historial.some(h => h.id !== p.id)).slice(0, 4)
+  }, [historial])
+
   return (
     <main className="mainCont">
       <h2>Productos</h2>
@@ -39,9 +48,37 @@ export default function Home() {
             precioAnt={prod.precioAnt}
             img={prod.img}
             estrellas={prod.estrellas}
+            onVerDetalle={setProductoSeleccionado}
           />
         ))}
       </div>
+
+      {historial.length > 0 && (
+        <>
+          <h2 style={{ marginTop: '2rem' }}>Te puede interesar</h2>
+          <div className="gridProd">
+            {recomendaciones.map((prod) => (
+              <ProductCard
+                key={`rec-${prod.id}`}
+                id={prod.id}
+                nombre={prod.nombre}
+                precio={prod.precio}
+                precioAnt={prod.precioAnt}
+                img={prod.img}
+                estrellas={prod.estrellas}
+                onVerDetalle={setProductoSeleccionado}
+              />
+            ))}
+          </div>
+        </>
+      )}
+
+      {productoSeleccionado && (
+        <ProductModal
+          producto={productoSeleccionado}
+          onClose={() => setProductoSeleccionado(null)}
+        />
+      )}
     </main>
   )
 }

@@ -1,9 +1,10 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState, useMemo } from 'react'
 
 export const CartContext = createContext()
 
 export function CartProvider({ children }) {
   const [carrito, setCarrito] = useState([])
+  const [historial, setHistorial] = useState([])
 
   const agregarProducto = (producto) => {
     setCarrito((prev) => {
@@ -17,6 +18,12 @@ export function CartProvider({ children }) {
         return prev
       }
       return [...prev, { ...producto, cantidad: 1 }]
+    })
+
+    // Agregar al historial si no existe
+    setHistorial((prev) => {
+      if (prev.find((p) => p.id === producto.id)) return prev
+      return [...prev, producto]
     })
   }
 
@@ -35,9 +42,26 @@ export function CartProvider({ children }) {
     )
   }
 
+  const total = useMemo(() => {
+    return carrito.reduce((acc, prod) => acc + parseFloat(prod.precio.replace('Q.', '')) * prod.cantidad, 0)
+  }, [carrito])
+
+  const recomendaciones = useMemo(() => {
+    return historial.slice(-3) // Últimos 3 productos vistos
+  }, [historial])
+
   return (
     <CartContext.Provider
-      value={{ carrito, agregarProducto, vaciarCarrito, eliminarProducto, cambiarCantidad }}
+      value={{
+        carrito,
+        agregarProducto,
+        vaciarCarrito,
+        eliminarProducto,
+        cambiarCantidad,
+        total,
+        historial,
+        recomendaciones
+      }}
     >
       {children}
     </CartContext.Provider>

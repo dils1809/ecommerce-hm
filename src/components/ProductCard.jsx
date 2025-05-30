@@ -1,23 +1,27 @@
-import React from 'react';
-import { useCart } from '../context/CartContext';
-import { useFav } from '../context/FavContext';
+import React, { useContext } from 'react'
+import { CartContext } from '../context/CartContext'
+import { FavContext } from '../context/FavContext'
+import { useLocation } from 'react-router-dom'
 
-export default function ProductCard({
-  id, nombre, precio, precioAnt, img, estrellas, desdeFavoritos
-}) {
-  const { agregarProducto } = useCart();
-  const { favoritos, toggleFavorito } = useFav();
+export default function ProductCard({ id, nombre, precio, precioAnt, img, estrellas, onVerDetalle }) {
+  const { agregarProducto } = useContext(CartContext)
+  const { favoritos, toggleFavorito } = useContext(FavContext)
+  const location = useLocation()
 
-  const handleAgregar = () => {
-    agregarProducto({ id, nombre, precio, img });
-  };
+  const enFavoritos = favoritos.some((p) => p.id === id)
 
-  const handleToggleFavorito = () => {
-    toggleFavorito({ id, nombre, precio, precioAnt, img, estrellas });
-  };
+  const handleAgregar = (e) => {
+    e.stopPropagation()
+    agregarProducto({ id, nombre, precio, img })
+  }
+
+  const handleFavorito = (e) => {
+    e.stopPropagation()
+    toggleFavorito({ id, nombre, precio, img })
+  }
 
   return (
-    <div className="prodCard">
+    <div className="prodCard" onClick={() => onVerDetalle?.({ id, nombre, precio, precioAnt, img, estrellas })}>
       <div className="prodImgCont">
         <img src={img} alt={nombre} className="prodImg" />
       </div>
@@ -27,10 +31,14 @@ export default function ProductCard({
       <p className="precioAnt">{precioAnt}</p>
       <div className="acciones">
         <button className="btn" onClick={handleAgregar}>Agregar</button>
-        <button className="btn" onClick={handleToggleFavorito}>
-          {desdeFavoritos ? 'Eliminar' : 'Favorito'}
-        </button>
+        {location.pathname === "/favorites" ? (
+          <button className="btn" onClick={handleFavorito}>Eliminar</button>
+        ) : (
+          <button className="btn" onClick={handleFavorito}>
+            {enFavoritos ? "Eliminar" : "Favorito"}
+          </button>
+        )}
       </div>
     </div>
-  );
+  )
 }
