@@ -76,7 +76,7 @@ npm run dev
 
 ## Captura
 
-![H&M page](C:\Users\dilar\OneDrive\Desktop\ecommerce-hm\ecommerce-hm\src\assets\home.png)
+![H&M page](src/assets/home.png)
 
 ## Autoría
 
