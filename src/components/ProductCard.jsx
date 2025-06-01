@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+ import React, { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
 import { FavContext } from '../context/FavContext'
 import { useLocation } from 'react-router-dom'
@@ -21,7 +21,7 @@ export default function ProductCard({ id, nombre, precio, precioAnt, img, estrel
   }
 
   return (
-    <div className="prodCard" onClick={() => onVerDetalle?.({ id, nombre, precio, precioAnt, img, estrellas })}>
+<div className="prodCard" onClick={() => onVerDetalle?.({ id, nombre, precio, precioAnt, img, estrellas })}>
       <div className="prodImgCont">
         <img src={img} alt={nombre} className="prodImg" />
       </div>

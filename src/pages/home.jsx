@@ -48,7 +48,7 @@ export default function Home() {
             precioAnt={prod.precioAnt}
             img={prod.img}
             estrellas={prod.estrellas}
-            onVerDetalle={setProductoSeleccionado}
+             onVerDetalle={() => setProductoSeleccionado(prod)}
           />
         ))}
       </div>
@@ -58,27 +58,29 @@ export default function Home() {
           <h2 style={{ marginTop: '2rem' }}>Te puede interesar</h2>
           <div className="gridProd">
             {recomendaciones.map((prod) => (
-              <ProductCard
-                key={`rec-${prod.id}`}
-                id={prod.id}
-                nombre={prod.nombre}
-                precio={prod.precio}
-                precioAnt={prod.precioAnt}
-                img={prod.img}
-                estrellas={prod.estrellas}
-                onVerDetalle={setProductoSeleccionado}
-              />
-            ))}
+  <ProductCard
+    key={`rec-${prod.id}`}
+    id={prod.id}
+    nombre={prod.nombre}
+    precio={prod.precio}
+    precioAnt={prod.precioAnt}
+    img={prod.img}
+    estrellas={prod.estrellas}
+    onVerDetalle={() => setProductoSeleccionado(prod)}
+  />
+))}
+
           </div>
         </>
       )}
 
       {productoSeleccionado && (
-        <ProductModal
-          producto={productoSeleccionado}
-          onClose={() => setProductoSeleccionado(null)}
-        />
-      )}
+  <ProductModal
+    producto={productoSeleccionado}
+    onClose={() => setProductoSeleccionado(null)}
+  />
+)}
+
     </main>
   )
 }

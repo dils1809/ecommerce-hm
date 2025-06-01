@@ -20,11 +20,15 @@ export function CartProvider({ children }) {
       return [...prev, { ...producto, cantidad: 1 }]
     })
 
-    // Agregar al historial si no existe
-    setHistorial((prev) => {
-      if (prev.find((p) => p.id === producto.id)) return prev
-      return [...prev, producto]
-    })
+    if (!historial.find((p) => p.id === producto.id)) {
+      setHistorial((prev) => [...prev, producto])
+    }
+  }
+
+  const agregarAFavoritos = (producto) => {
+    if (!historial.find((p) => p.id === producto.id)) {
+      setHistorial((prev) => [...prev, producto])
+    }
   }
 
   const vaciarCarrito = () => setCarrito([])
@@ -47,7 +51,7 @@ export function CartProvider({ children }) {
   }, [carrito])
 
   const recomendaciones = useMemo(() => {
-    return historial.slice(-3) // Últimos 3 productos vistos
+    return historial.slice(-3)
   }, [historial])
 
   return (
@@ -55,6 +59,7 @@ export function CartProvider({ children }) {
       value={{
         carrito,
         agregarProducto,
+        agregarAFavoritos,
         vaciarCarrito,
         eliminarProducto,
         cambiarCantidad,
