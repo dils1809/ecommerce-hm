@@ -3,7 +3,7 @@ import React from 'react'
 export default function FavoritesList({ favs = [] }) {
   return (
     <div className="listaFavs">
-      <h2>Mis favoritos</h2>
+      <h1 className="pageTitle">Favoritos</h1>
       <div className="gridFavs">
         {favs.map((prod, i) => (
           <div key={i} className="cardFav">

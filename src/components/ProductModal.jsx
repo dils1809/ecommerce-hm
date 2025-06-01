@@ -3,6 +3,8 @@ import { CartContext } from "../context/CartContext"
 import { FavContext } from "../context/FavContext"
 import ModalContent from "./ProductModalContent"
 import "bootstrap/dist/css/bootstrap.min.css"
+import "../pages/InfoProducto.css"
+
 
 export default function ProductModal({ producto, onClose }) {
   const { agregarProducto } = useContext(CartContext)

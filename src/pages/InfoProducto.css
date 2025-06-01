@@ -1,0 +1,42 @@
+.btn-talla {
+  padding: 10px 16px;
+  margin: 4px;
+  border: 2px solid #333;
+  border-radius: 12px;
+  background-color: white;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.modal-body p {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.estrellas {
+  color: #FFD700; 
+  font-size: 1.4rem;
+}
+
+.btn-talla:hover {
+  background-color: #333;
+  color: white;
+}
+
+.btn-carrito,
+.btn-favorito {
+  padding: 12px 20px;
+  margin-right: 10px;
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.btn-carrito:hover,
+.btn-favorito:hover {
+  background-color: #5146e1;
+  transform: scale(1.05);
+}

@@ -2,6 +2,7 @@ import React, { useContext, useMemo, useState } from 'react'
 import ProductCard from '../components/ProductCard'
 import ProductModal from '../components/ProductModal'
 import { CartContext } from '../context/CartContext'
+import "../index.css";
 
 import vestido from '../assets/vestido-verde.png'
 import blusa from '../assets/blusa-blanca.png'

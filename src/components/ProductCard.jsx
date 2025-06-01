@@ -29,6 +29,7 @@ export default function ProductCard({ id, nombre, precio, precioAnt, img, estrel
       <div className="estrellas">{estrellas}</div>
       <p className="precioAct">{precio}</p>
       <p className="precioAnt">{precioAnt}</p>
+
       <div className="acciones">
         <button className="btn" onClick={handleAgregar}>Agregar</button>
         {location.pathname === "/favorites" ? (

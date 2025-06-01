@@ -1,4 +1,6 @@
 import React from "react"
+import ProductInfoColumn from "./ProductInfoColumn"
+import "../pages/InfoProducto.css"
 
 export default function ModalContent({
   producto,
@@ -20,21 +22,13 @@ export default function ModalContent({
             <div className="col-md-6 text-center">
               <img src={producto.img} alt={producto.nombre} className="img-fluid" />
             </div>
-            <div className="col-md-6 d-flex flex-column justify-content-between" style={{ minHeight: '100%' }}>
-              <div>
-                <p><strong>Precio actual:</strong> {producto.precio}</p>
-                <p><strong>Precio anterior:</strong> <del>{producto.precioAnt}</del></p>
-                <p><strong>Reseñas:</strong> {producto.estrellas}</p>
-              </div>
-              <div className="d-flex justify-content-between mt-4">
-                <button className="btn btn-outline-danger" onClick={handleFavorito}>
-                  {enFavoritos ? "Eliminar de favoritos" : "Agregar a favoritos"}
-                </button>
-                <button className="btn btn-dark" onClick={handleAgregar}>
-                  Agregar al carrito
-                </button>
-              </div>
-            </div>
+
+            <ProductInfoColumn
+              producto={producto}
+              handleAgregar={handleAgregar}
+              handleFavorito={handleFavorito}
+              enFavoritos={enFavoritos}
+            />
           </div>
         </div>
       </div>
