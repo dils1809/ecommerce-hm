@@ -2,6 +2,8 @@
 import { CartContext } from '../context/CartContext'
 import { FavContext } from '../context/FavContext'
 import { useLocation } from 'react-router-dom'
+import productCardPropTypes from './ProductCard.propTypes'
+
 
 export default function ProductCard({ id, nombre, precio, precioAnt, img, estrellas, onVerDetalle }) {
   const { agregarProducto } = useContext(CartContext)
@@ -19,6 +21,7 @@ export default function ProductCard({ id, nombre, precio, precioAnt, img, estrel
     e.stopPropagation()
     toggleFavorito({ id, nombre, precio, precioAnt, estrellas, img })
   }
+ProductCard.propTypes = productCardPropTypes
 
   return (
 <div className="prodCard" onClick={() => onVerDetalle?.({ id, nombre, precio, precioAnt, img, estrellas })}>
