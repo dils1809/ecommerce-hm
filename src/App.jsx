@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './components/Header'
-import Home from './pages/Home'
+import Home from './pages/Home.jsx'
 import Cart from './pages/Cart'
 import Favorites from './pages/Favorites'
 import ProductDetail from './pages/ProductDetail'
