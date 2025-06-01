@@ -17,7 +17,7 @@ export default function ProductCard({ id, nombre, precio, precioAnt, img, estrel
 
   const handleFavorito = (e) => {
     e.stopPropagation()
-    toggleFavorito({ id, nombre, precio, img })
+    toggleFavorito({ id, nombre, precio, precioAnt, estrellas, img })
   }
 
   return (
